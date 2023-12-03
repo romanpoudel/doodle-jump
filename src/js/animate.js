@@ -13,6 +13,10 @@ const background = new Sprite({
 });
 
 export function animate(ctx, player) {
+	// //do not update if game over
+	// if (player.gameOver) {
+	// 	return;
+	// }
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 	//background
@@ -35,5 +39,12 @@ export function animate(ctx, player) {
 	//score update
 	score(player);
 
+	if(player.gameOver){
+		ctx.fillStyle = "black";
+		ctx.font = "20px Arial";
+		ctx.fillText(`Game Over`, CANVAS_WIDTH/2 - 50, CANVAS_HEIGHT/2-20);
+		ctx.fillText(`Score: ${player.score}`, CANVAS_WIDTH/2 - 50, CANVAS_HEIGHT/2);
+		ctx.fillText(`Press 'Space' to Restart`, CANVAS_WIDTH/2 - 100, CANVAS_HEIGHT/2 +20);
+	}
 	requestAnimationFrame(() => animate(ctx, player));
 }

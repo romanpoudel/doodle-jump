@@ -4,6 +4,8 @@ const keys={
   d: false,
   // w: false,
   space: false,
+  arrowLeft: false,
+  arrowRight: false,
 }
 
 window.addEventListener('keydown',(e)=>{
@@ -22,6 +24,12 @@ window.addEventListener('keydown',(e)=>{
     //   break;
     case ' ':
       keys.space=true;
+      break;
+    case 'ArrowLeft':
+      keys.arrowLeft=true;
+      break;
+    case 'ArrowRight':
+      keys.arrowRight=true;
       break;
   }
 });
@@ -43,6 +51,12 @@ window.addEventListener('keyup',(e)=>{
     //   break;
     case ' ':
       keys.space=false;
+      break;
+    case 'ArrowLeft':
+      keys.arrowLeft=false;
+      break;
+    case 'ArrowRight':
+      keys.arrowRight=false;
       break;
   }
 });
